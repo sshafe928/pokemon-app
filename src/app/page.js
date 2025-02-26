@@ -7,7 +7,7 @@ export default async function Home() {
   
   try {
     // Server-side data fetching in App Router
-    const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=20', { next: { revalidate: 3600 } });
+    const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100', { next: { revalidate: 3600 } });
     
     if (!res.ok) {
       throw new Error('Failed to fetch data from PokeAPI');
@@ -37,11 +37,11 @@ export default async function Home() {
       <main className="container mx-auto py-8 px-4">
         <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">Pokémon Explorer</h1>
         
-        {/* We'll move the interactive parts to a client component */}
+
         <PokemonList initialPokemon={pokemon} />
       </main>
       
-      <footer className="bg-blue-600 text-white py-4 mt-8">
+      <footer className="bg-blue-600 text-white py-4 fixed inset-x-0 bottom-0">
         <div className="container mx-auto text-center">
           <p>Data provided by <a href="https://pokeapi.co/" className="underline">PokeAPI</a></p>
         </div>
