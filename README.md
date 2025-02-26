@@ -1,36 +1,106 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Pokémon Explorer
 
-## Getting Started
+Pokémon Explorer is a web application that allows users to explore a list of Pokémon and view detailed information about each one. The app fetches Pokémon data from the PokeAPI and provides an interactive experience for users to view Pokémon stats, abilities, types, and more.
 
-First, run the development server:
+## Features
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- Browse a list of Pokémon.
+- View detailed information about each Pokémon, including:
+ - Types
+ - Stats
+ - Abilities
+ - Physical attributes (height, weight)
+ - Pokémon sprite images
+- Interactive UI with loading indicators and error handling.
+- Data fetched server-side to ensure fast performance and up-to-date content.
+
+## Tech Stack
+
+- React (for the frontend UI)
+- Next.js (for server-side data fetching)
+- Tailwind CSS (for styling)
+- PokeAPI (for Pokémon data)
+
+## Installation
+
+To run the project locally, follow these steps:
+
+1. Clone the repository:
+
+```git clone https://github.com/yourusername/pokemon-explorer.git```
+
+2. Navigate to the project directory:
+
+```cd pokemon-explorer```
+3. Install the dependencies:
+
+
+```npm install```
+4. Start the development server:
+
+
+```npm run dev```
+
+5. Open your browser and visit http://localhost:3000 to view the application.
+
+## Folder Structure
+
+```
+├── components/
+│   ├── PokemonList.js         # Component to display list and details of Pokémon
+├── pages/
+│   ├── index.js               # Main page that fetches and displays Pokémon
+├── public/                     # Static assets like images
+├── styles/                     # Tailwind CSS configuration
+├── package.json                # Project dependencies and scripts
+└── README.md                   # This file
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## How It Works
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### Data Fetching:
+The Home component fetches a list of Pokémon from the PokeAPI on the server-side. The `next: { revalidate: 3600 }` option is used for caching and revalidation to ensure data is refreshed every hour.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Displaying Pokémon:
+The Pokémon list is displayed using the PokemonList component, which receives the data as props. It shows a scrollable list of Pokémon names, and clicking on a name fetches more detailed data for that Pokémon.
 
-## Learn More
+### Displaying Pokémon Details:
+Once a Pokémon is selected, the application fetches additional details (like stats, abilities, types, etc.) and displays them on the right side of the screen. A loading spinner is shown while the details are being fetched.
 
-To learn more about Next.js, take a look at the following resources:
+### Error Handling:
+If there's an error fetching the data (either the list or individual Pokémon details), the application shows a friendly error message.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Running the Application
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+After following the installation steps, the app will run in development mode. You can interact with the Pokémon list, click on any Pokémon name to load its details, and view stats, abilities, and other relevant information.
 
-## Deploy on Vercel
+## Example UI
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **Pokémon List Section**: A scrollable list of Pokémon names that users can click to view more details.
+- **Pokémon Details Section**: Displays detailed information about the selected Pokémon, such as its type, stats, abilities, and more, with a nice responsive layout.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributions
+
+Contributions are welcome! Feel free to fork this repository and submit pull requests with improvements, bug fixes, or new features.
+
+Please follow these steps to contribute:
+
+1. Fork the repository
+2. Create a new branch
+3. Make your changes
+4. Submit a pull request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- PokeAPI for providing the Pokémon data.
+- Next.js for server-side rendering and routing.
+- React for building the interactive user interface.
+- Tailwind CSS for the styling framework.
+
+## Contact
+
+If you have any questions, feel free to reach out to me via GitHub or email.
