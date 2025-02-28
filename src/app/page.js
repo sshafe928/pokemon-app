@@ -1,12 +1,11 @@
 import { PokemonList } from './components/PokemonList';
 
-// This is a Server Component - it can fetch data
 export default async function Home() {
   let pokemon = [];
   let error = null;
   
   try {
-    // Server-side data fetching in App Router
+    // Server-side data fetching
     const res = await fetch('https://pokeapi.co/api/v2/pokemon?limit=100', { next: { revalidate: 3600 } });
     
     if (!res.ok) {

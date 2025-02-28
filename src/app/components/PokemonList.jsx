@@ -28,10 +28,9 @@
 
     return (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {/* Pokemon List - 1/3 width on medium+ screens with fixed height and scrolling */}
         <div className="bg-white p-6 rounded-lg shadow-md">
             <h2 className="text-2xl font-semibold mb-4 text-gray-800">Pokémon List</h2>
-            {/* This div will be scrollable with a fixed height */}
+        
             <div className="h-96 overflow-y-auto pr-2">
             <ul className="space-y-2">
                 {initialPokemon.map((p) => (
@@ -47,7 +46,7 @@
             </div>
         </div>
         
-        {/* Pokemon Details - 2/3 width on medium+ screens */}
+        
         <div className="md:col-span-2 bg-white p-6 rounded-lg shadow-md">
             {isLoading ? (
             <div className="flex flex-col items-center justify-center h-64">
